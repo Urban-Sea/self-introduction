@@ -1,6 +1,6 @@
 import About from "./components/About";
+import Activities from "./components/Activities";
 import AuroraBackground from "./components/AuroraBackground";
-import Career from "./components/Career";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -16,7 +16,7 @@ export default function Home() {
         <About />
         <Interests />
         <Experience />
-        <Career />
+        <Activities />
         <Products />
         <Footer />
       </main>

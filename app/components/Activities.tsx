@@ -85,7 +85,7 @@ const timeline: TimelineItem[] = [
   },
 ];
 
-export default function Career() {
+export default function Activities() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -94,11 +94,11 @@ export default function Career() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section id="career" className="relative px-6 py-20 md:px-12 md:py-28">
+    <section id="activities" className="relative px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-2xl">
         <FadeIn>
           <p className="mb-8 text-[11px] font-semibold uppercase tracking-[0.4em] text-ink-soft md:text-xs">
-            Career
+            Activities
           </p>
         </FadeIn>
 
