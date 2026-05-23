@@ -101,7 +101,7 @@ const timeline: TimelineItem[] = [
     body: "用意されたウェブアプリケーションを対象に、実際の脆弱性を探索・報告する実践形式のコンテスト。",
   },
   {
-    year: "2023",
+    year: "2024",
     month: "5月",
     tag: "資格",
     title: "IT パスポート試験 合格",
