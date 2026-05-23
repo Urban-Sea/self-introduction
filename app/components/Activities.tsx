@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { ReactNode, useRef } from "react";
 import FadeIn from "./FadeIn";
 
+type Tag = "資格" | "インターン" | "コンテスト" | "イベント";
+
 type TimelineItem = {
   year: string;
   month: string;
@@ -11,6 +13,14 @@ type TimelineItem = {
   href?: string;
   body: ReactNode;
   status?: "upcoming";
+  tag?: Tag;
+};
+
+const tagTones: Record<Tag, string> = {
+  資格: "bg-sky-soft",
+  インターン: "bg-blush",
+  コンテスト: "bg-lilac",
+  イベント: "bg-peach",
 };
 
 const scrollToCard = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -25,6 +35,7 @@ const timeline: TimelineItem[] = [
   {
     year: "2026",
     month: "6月",
+    tag: "インターン",
     title: "サイバーエージェント 1day インターン『Architecture Challenge』",
     href: "https://www.cyberagent.co.jp/careers/students/event/detail/id=33042",
     body: "テーマ「複数のサービスを支えるマルチテナンシーなプラットフォームを設計せよ」。SRE / プラットフォームエンジニアリング領域の設計課題に取り組む。",
@@ -33,6 +44,7 @@ const timeline: TimelineItem[] = [
   {
     year: "",
     month: "5月",
+    tag: "コンテスト",
     title: "第21回 情報危機管理コンテスト 二次予選",
     href: "https://sites.google.com/g.wakayama-u.jp/2026-1st/%E5%8F%82%E5%8A%A0%E3%83%81%E3%83%BC%E3%83%A0?authuser=0",
     body: "一次予選を突破して進出。突破には届かなかったものの、競技形式でのインシデント対応に取り組んだ。",
@@ -40,6 +52,7 @@ const timeline: TimelineItem[] = [
   {
     year: "",
     month: "4月",
+    tag: "イベント",
     title: "セキュリティ・キャンプ 2026 ミニ（東京）",
     href: "https://www.security-camp.or.jp/minicamp/tokyo2026.html",
     body: (
@@ -59,6 +72,7 @@ const timeline: TimelineItem[] = [
   {
     year: "",
     month: "4月",
+    tag: "コンテスト",
     title: "第21回 情報危機管理コンテスト 一次予選 突破",
     href: "https://sites.google.com/g.wakayama-u.jp/2026-1st/%E5%8F%82%E5%8A%A0%E3%83%81%E3%83%BC%E3%83%A0?authuser=0",
     body: "インシデント対応の基礎力として、与えられた状況に対する分析力・戦略立案力を問う書面審査を突破。",
@@ -66,12 +80,14 @@ const timeline: TimelineItem[] = [
   {
     year: "",
     month: "2月",
+    tag: "コンテスト",
     title: "防衛省サイバーコンテスト",
     body: "防衛省主催のサイバーセキュリティ競技。実践形式の課題に挑戦。",
   },
   {
     year: "",
     month: "1月",
+    tag: "イベント",
     title: "NTT セキュリティ・ジャパン SOC 紹介・脅威分析体験ワークショップ",
     href: "https://jp.security.ntt/insights_resources/tech_blog/soc_introduction_worksho2026/",
     body: "SOC の業務理解と脅威分析を体験するワークショップに参加。実務観点での検知・分析の流れを学んだ。",
@@ -79,6 +95,7 @@ const timeline: TimelineItem[] = [
   {
     year: "2025",
     month: "8月〜10月",
+    tag: "コンテスト",
     title: "千葉大学 セキュリティバグハンティングコンテスト 優秀賞",
     href: "https://jdp.chiba-u.jp/c-csirt/contest/index.html",
     body: "用意されたウェブアプリケーションを対象に、実際の脆弱性を探索・報告する実践形式のコンテスト。",
@@ -86,6 +103,7 @@ const timeline: TimelineItem[] = [
   {
     year: "2023",
     month: "5月",
+    tag: "資格",
     title: "IT パスポート試験 合格",
     body: "情報処理推進機構 (IPA) 主催の国家試験。情報技術の基礎を体系的に学んだ。",
   },
@@ -129,10 +147,19 @@ export default function Activities() {
                     {t.year}
                   </span>
                 )}
-                {t.month && (
-                  <p className={`text-[10px] font-semibold uppercase tracking-[0.3em] text-ink-soft md:text-xs ${t.year ? "mt-2" : ""}`}>
-                    {t.month}
-                  </p>
+                {(t.month || t.tag) && (
+                  <div className={`flex flex-wrap items-center gap-2 ${t.year ? "mt-2" : ""}`}>
+                    {t.month && (
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink-soft md:text-xs">
+                        {t.month}
+                      </p>
+                    )}
+                    {t.tag && (
+                      <span className={`${tagTones[t.tag]} rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-ink ring-1 ring-black/5`}>
+                        {t.tag}
+                      </span>
+                    )}
+                  </div>
                 )}
                 <h3 className="mt-1.5 flex flex-wrap items-center gap-2.5 text-base font-medium text-ink md:text-xl">
                   {t.href ? (
