@@ -1,16 +1,34 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 import FadeIn from "./FadeIn";
 
-const timeline = [
+type TimelineItem = {
+  year: string;
+  month: string;
+  title: string;
+  href?: string;
+  body: ReactNode;
+  status?: "upcoming";
+};
+
+const scrollToCard = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const target = document.getElementById(id);
+  if (target) {
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
+const timeline: TimelineItem[] = [
   {
     year: "2026",
     month: "6月",
     title: "サイバーエージェント 1day インターン『Architecture Challenge』",
+    href: "https://www.cyberagent.co.jp/careers/students/event/detail/id=33042",
     body: "テーマ「複数のサービスを支えるマルチテナンシーなプラットフォームを設計せよ」。SRE / プラットフォームエンジニアリング領域の設計課題に取り組む。",
-    status: "upcoming" as const,
+    status: "upcoming",
   },
   {
     year: "",
@@ -24,7 +42,19 @@ const timeline = [
     month: "4月",
     title: "セキュリティ・キャンプ 2026 ミニ（東京）",
     href: "https://www.security-camp.or.jp/minicamp/tokyo2026.html",
-    body: "Bトラックを2講座受講。『DNSサーバを書いて学ぶ：可観測性とデータ持ち出し対策』では Rust で DNS コンテンツサーバを実装し、構造化ログ設計とログ比較分析を経験。『AIエージェント時代のサイバー防衛入門』では攻撃再現→ログ分析→検知ルール作成→是正確認の防御パイプラインを構築。後者の学びを発展させて個人開発のインシデント対応半自律エージェントに展開。",
+    body: (
+      <>
+        Bトラックを2講座受講。『DNSサーバを書いて学ぶ：可観測性とデータ持ち出し対策』では Rust で DNS コンテンツサーバを実装し、構造化ログ設計とログ比較分析を経験。『AIエージェント時代のサイバー防衛入門』では攻撃再現→ログ分析→検知ルール作成→是正確認の防御パイプラインを構築。後者の学びを発展させて個人開発の
+        <a
+          href="#log_analysis"
+          onClick={(e) => scrollToCard(e, "log_analysis")}
+          className="underline decoration-ink/30 underline-offset-[3px] transition-colors hover:decoration-ink"
+        >
+          インシデント対応半自律エージェント
+        </a>
+        に展開。
+      </>
+    ),
   },
   {
     year: "",

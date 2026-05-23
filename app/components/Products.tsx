@@ -5,6 +5,7 @@ import { LuArrowUpRight } from "react-icons/lu";
 import FadeIn from "./FadeIn";
 
 type Product = {
+  id?: string;
   name: string;
   href: string;
   description: string;
@@ -39,7 +40,8 @@ const products: Product[] = [
       "Next.js 15 / Go (Echo) / Python (FastAPI, pandas, numpy) / PostgreSQL / Redis / Docker Compose / nginx / GitHub Actions / Cloudflare (R2, WAF, Zero Trust) / Sakura VPS",
   },
   {
-    name: "AI Incident Pipeline",
+    id: "log_analysis",
+    name: "log_analysis",
     href: "https://github.com/Urban-Sea/log_analysis",
     description:
       "電話受電起点のインシデント対応を Claude Code の slash command で半自動化。4 層アーキテクチャ（観測→判断→検証）と物理ゲートで、AI と人間の責任境界を明確に切ったパイプライン。",
@@ -66,12 +68,13 @@ export default function Products() {
           {products.map((p, i) => (
             <FadeIn key={p.name} delay={i * 0.1}>
               <motion.a
+                id={p.id}
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className={`group relative flex h-full flex-col overflow-hidden rounded-3xl bg-gradient-to-br ${p.gradient} p-7 ring-1 ring-black/5 md:p-8`}
+                className={`group relative flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl bg-gradient-to-br ${p.gradient} p-7 ring-1 ring-black/5 md:p-8`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink-soft">
