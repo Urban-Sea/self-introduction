@@ -21,7 +21,7 @@ const products: Product[] = [
     href: "https://akihabara-cardmap.com/",
     description:
       "秋葉原のカードショップを地図上で探せるサービス。",
-    role: "Frontend / UI",
+    role: "企業内プロダクト · Frontend / UI",
     badge: "公開中",
     badgeTone: "bg-mint-soft",
     gradient: "from-blush to-peach",
@@ -93,12 +93,14 @@ export default function Products() {
                 </p>
 
                 {p.stack && (
-                  <p className="mt-4 text-[11px] leading-relaxed text-ink-soft/80 md:text-xs">
-                    <span className="font-semibold uppercase tracking-[0.2em]">
+                  <div className="mt-4">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft md:text-xs">
                       Stack
-                    </span>{" "}
-                    · {p.stack}
-                  </p>
+                    </p>
+                    <p className="mt-1 overflow-x-auto whitespace-nowrap pb-1 text-[11px] leading-relaxed text-ink-soft/80 md:text-xs [-ms-overflow-style:none] [scrollbar-width:thin]">
+                      {p.stack}
+                    </p>
+                  </div>
                 )}
 
                 <span className="mt-auto inline-flex items-center gap-1.5 self-start pt-5 text-sm font-medium text-ink md:text-base">
