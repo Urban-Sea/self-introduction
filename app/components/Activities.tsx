@@ -112,7 +112,7 @@ export default function Activities() {
 
           {timeline.map((t, i) => (
             <FadeIn key={t.title} delay={i * 0.08}>
-              <div className={`relative pl-10 last:mb-0 ${t.year && i > 0 ? "mt-6 mb-10" : "mb-10"}`}>
+              <div className={`relative pl-10 last:mb-0 ${t.year && i > 0 ? "mt-8 mb-14" : "mb-14"}`}>
                 {/* dot: absolute left-0 makes dot box [0,16] → center at x=8 */}
                 <span className="absolute left-0 top-[5px] flex h-4 w-4 items-center justify-center rounded-full bg-cream ring-2 ring-lilac-strong">
                   <span className="h-1.5 w-1.5 rounded-full bg-lilac-strong" />
