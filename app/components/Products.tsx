@@ -4,12 +4,23 @@ import { motion } from "motion/react";
 import { LuArrowUpRight } from "react-icons/lu";
 import FadeIn from "./FadeIn";
 
-const products = [
+type Product = {
+  name: string;
+  href: string;
+  description: string;
+  role: string;
+  badge: string;
+  badgeTone: string;
+  gradient: string;
+  stack?: string;
+};
+
+const products: Product[] = [
   {
     name: "Akihabara Card Map",
     href: "https://akihabara-cardmap.com/",
     description:
-      "秋葉原のカードショップを地図上で探せるサービス。インターン先のプロダクトに参加。",
+      "秋葉原のカードショップを地図上で探せるサービス。",
     role: "Frontend / UI",
     badge: "公開中",
     badgeTone: "bg-mint-soft",
@@ -20,10 +31,24 @@ const products = [
     href: "https://open-regime.com",
     description:
       "投資リサーチを支援する個人プロダクト。相場局面（レジーム）の可視化を試しています。",
-    role: "Personal · Full-stack",
-    badge: "開発中",
-    badgeTone: "bg-lilac",
+    role: "Personal · Full-stack · 2026.02–04",
+    badge: "公開中",
+    badgeTone: "bg-mint-soft",
     gradient: "from-sky-soft to-lilac",
+    stack:
+      "Next.js 15 / Go (Echo) / Python (FastAPI, pandas, numpy) / PostgreSQL / Redis / Docker Compose / nginx / GitHub Actions / Cloudflare (R2, WAF, Zero Trust) / Sakura VPS",
+  },
+  {
+    name: "AI Incident Pipeline",
+    href: "https://github.com/Urban-Sea/log_analysis",
+    description:
+      "電話受電起点のインシデント対応を Claude Code の slash command で半自動化。4 層アーキテクチャ（観測→判断→検証）と物理ゲートで、AI と人間の責任境界を明確に切ったパイプライン。",
+    role: "Personal · Security / Ops",
+    badge: "OSS",
+    badgeTone: "bg-lilac",
+    gradient: "from-mint-soft to-sky-soft",
+    stack:
+      "Claude Code / Anthropic API / Python 3.10+ / bash / 各種ログパーサ (Apache CLF, named, syslog, secure, maillog)",
   },
 ];
 
@@ -63,11 +88,20 @@ export default function Products() {
                   {p.name}
                 </h3>
 
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft md:text-base">
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft md:text-base">
                   {p.description}
                 </p>
 
-                <span className="mt-5 inline-flex items-center gap-1.5 self-start text-sm font-medium text-ink md:text-base">
+                {p.stack && (
+                  <p className="mt-4 text-[11px] leading-relaxed text-ink-soft/80 md:text-xs">
+                    <span className="font-semibold uppercase tracking-[0.2em]">
+                      Stack
+                    </span>{" "}
+                    · {p.stack}
+                  </p>
+                )}
+
+                <span className="mt-auto inline-flex items-center gap-1.5 self-start pt-5 text-sm font-medium text-ink md:text-base">
                   サイトを見る
                   <motion.span
                     aria-hidden

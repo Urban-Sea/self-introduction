@@ -20,8 +20,6 @@ const chips: Chip[] = [
   { label: "CTF", Icon: LuFlag, tone: "bg-mint-soft" },
 ];
 
-const horses = ["デアリングタクト", "エフフォーリア", "フォーエバーヤング"];
-
 export default function Interests() {
   return (
     <section id="interests" className="relative px-6 py-20 md:px-12 md:py-28">
@@ -45,22 +43,6 @@ export default function Interests() {
           ))}
         </div>
 
-        <FadeIn delay={0.1}>
-          <p className="mt-12 mb-4 text-[11px] font-semibold uppercase tracking-[0.4em] text-ink-soft md:text-xs">
-            Favorite Horses
-          </p>
-        </FadeIn>
-
-        <div className="flex flex-wrap gap-3">
-          {horses.map((name, i) => (
-            <FadeIn key={name} delay={i * 0.04}>
-              <span className="inline-flex items-center gap-2.5 rounded-full bg-peach px-5 py-2.5 text-base text-ink ring-1 ring-black/5">
-                <GiHorseHead aria-hidden className="text-[1.1em] text-ink-soft" />
-                {name}
-              </span>
-            </FadeIn>
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -7,24 +7,51 @@ import FadeIn from "./FadeIn";
 const timeline = [
   {
     year: "2026",
-    title: "セキュリティ・キャンプ 2026 ミニ（東京）",
-    href: "https://www.security-camp.or.jp/minicamp/tokyo2026.html",
-    body: "短期集中でセキュリティを深掘りできる貴重な機会。手を動かしながら学び、得たものをどんどんアウトプットしていきたいです。",
+    month: "6月",
+    title: "サイバーエージェント 1day インターン『Architecture Challenge』参加",
+    body: "テーマ「複数のサービスを支えるマルチテナンシーなプラットフォームを設計せよ」。SRE / プラットフォームエンジニアリング領域の設計課題に取り組む。",
     status: "upcoming" as const,
   },
   {
     year: "",
-    title: "第21回 情報危機管理コンテスト 一次予選突破",
-    href: "https://sites.google.com/g.wakayama-u.jp/2026-1st/%E3%83%9B%E3%83%BC%E3%83%A0?authuser=0",
+    month: "5月",
+    title: "第21回 情報危機管理コンテスト 二次予選 参加",
+    href: "https://sites.google.com/g.wakayama-u.jp/2026-1st/%E5%8F%82%E5%8A%A0%E3%83%81%E3%83%BC%E3%83%A0?authuser=0",
+    body: "一次予選を突破して進出。突破には届かなかったものの、競技形式でのインシデント対応を実地で経験。",
+  },
+  {
+    year: "",
+    month: "4月",
+    title: "セキュリティ・キャンプ 2026 ミニ（東京）参加",
+    href: "https://www.security-camp.or.jp/minicamp/tokyo2026.html",
+    body: "Bトラック『DNSサーバを書いて学ぶ：可観測性とデータ持ち出し対策』を受講。Rust で DNS コンテンツサーバを実装し、構造化ログ設計と通常／異常通信ログの比較分析を経験。学びを発展させて個人開発の AI インシデント対応パイプラインに展開。",
+  },
+  {
+    year: "",
+    month: "4月",
+    title: "第21回 情報危機管理コンテスト 一次予選 突破",
+    href: "https://sites.google.com/g.wakayama-u.jp/2026-1st/%E5%8F%82%E5%8A%A0%E3%83%81%E3%83%BC%E3%83%A0?authuser=0",
     body: "インシデント対応の基礎力として、与えられた状況に対する分析力・戦略立案力を問う書面審査を突破。",
-    status: "done" as const,
+  },
+  {
+    year: "",
+    month: "2月",
+    title: "防衛省サイバーコンテスト 参加",
+    body: "防衛省主催のサイバーセキュリティ競技。実践形式の課題に挑戦。",
+  },
+  {
+    year: "",
+    month: "1月",
+    title: "NTT セキュリティ・ジャパン SOC 紹介・脅威分析体験ワークショップ 参加",
+    href: "https://jp.security.ntt/insights_resources/tech_blog/soc_introduction_worksho2026/",
+    body: "SOC の業務理解と脅威分析を体験するワークショップに参加。実務観点での検知・分析の流れを学んだ。",
   },
   {
     year: "2025",
+    month: "8月〜10月",
     title: "千葉大学 セキュリティバグハンティングコンテスト 優秀賞",
     href: "https://jdp.chiba-u.jp/c-csirt/contest/index.html",
     body: "用意されたウェブアプリケーションを対象に、実際の脆弱性を探索・報告する実践形式のコンテスト。",
-    status: "done" as const,
   },
 ];
 
@@ -55,7 +82,7 @@ export default function Career() {
 
           {timeline.map((t, i) => (
             <FadeIn key={t.title} delay={i * 0.08}>
-              <div className={`relative pl-10 last:mb-0 ${t.year && i > 0 ? "mt-6 mb-12" : "mb-12"}`}>
+              <div className={`relative pl-10 last:mb-0 ${t.year && i > 0 ? "mt-6 mb-10" : "mb-10"}`}>
                 {/* dot: absolute left-0 makes dot box [0,16] → center at x=8 */}
                 <span className="absolute left-0 top-[5px] flex h-4 w-4 items-center justify-center rounded-full bg-cream ring-2 ring-lilac-strong">
                   <span className="h-1.5 w-1.5 rounded-full bg-lilac-strong" />
@@ -66,7 +93,12 @@ export default function Career() {
                     {t.year}
                   </span>
                 )}
-                <h3 className="mt-2 flex flex-wrap items-center gap-2.5 text-base font-medium text-ink md:text-xl">
+                {t.month && (
+                  <p className={`text-[10px] font-semibold uppercase tracking-[0.3em] text-ink-soft md:text-xs ${t.year ? "mt-2" : ""}`}>
+                    {t.month}
+                  </p>
+                )}
+                <h3 className="mt-1.5 flex flex-wrap items-center gap-2.5 text-base font-medium text-ink md:text-xl">
                   {t.href ? (
                     <a
                       href={t.href}
@@ -80,8 +112,8 @@ export default function Career() {
                     t.title
                   )}
                   {t.status === "upcoming" && (
-                    <span className="rounded-full bg-mint-soft px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-ink">
-                      Upcoming
+                    <span className="rounded-full bg-mint-soft px-3 py-1 text-[10px] font-semibold tracking-widest text-ink">
+                      参加予定
                     </span>
                   )}
                 </h3>
