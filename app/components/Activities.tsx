@@ -83,6 +83,12 @@ const timeline: TimelineItem[] = [
     href: "https://jdp.chiba-u.jp/c-csirt/contest/index.html",
     body: "用意されたウェブアプリケーションを対象に、実際の脆弱性を探索・報告する実践形式のコンテスト。",
   },
+  {
+    year: "2023",
+    month: "5月",
+    title: "IT パスポート試験 合格",
+    body: "情報処理推進機構 (IPA) 主催の国家試験。情報技術の基礎を体系的に学んだ。",
+  },
 ];
 
 export default function Activities() {
