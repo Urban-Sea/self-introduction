@@ -163,9 +163,14 @@ export default function Activities() {
                         {t.tag}
                       </span>
                     )}
+                    {t.status === "upcoming" && (
+                      <span className="rounded-full bg-mint-soft px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-ink ring-1 ring-black/5">
+                        参加予定
+                      </span>
+                    )}
                   </div>
                 )}
-                <h3 className="mt-1.5 flex flex-wrap items-center gap-2.5 text-base font-medium text-ink md:text-xl">
+                <h3 className="mt-1.5 text-base font-medium text-ink md:text-xl">
                   {t.href ? (
                     <a
                       href={t.href}
@@ -177,11 +182,6 @@ export default function Activities() {
                     </a>
                   ) : (
                     t.title
-                  )}
-                  {t.status === "upcoming" && (
-                    <span className="rounded-full bg-mint-soft px-3 py-1 text-[10px] font-semibold tracking-widest text-ink">
-                      参加予定
-                    </span>
                   )}
                 </h3>
                 {t.body && (
