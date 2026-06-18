@@ -1,4 +1,5 @@
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import { SiZenn } from "react-icons/si";
 import FadeIn from "./FadeIn";
 
 const links = [
@@ -6,6 +7,11 @@ const links = [
     label: "@frankie_kincsem",
     href: "https://twitter.com/frankie_kincsem",
     Icon: FaXTwitter,
+  },
+  {
+    label: "Zenn",
+    href: "https://zenn.dev/urban_sea",
+    Icon: SiZenn,
   },
   {
     label: "Urban-Sea",

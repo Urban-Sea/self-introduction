@@ -34,6 +34,15 @@ const scrollToCard = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
 const timeline: TimelineItem[] = [
   {
     year: "2026",
+    month: "7月",
+    tag: "インターン",
+    title: "MBSD 仕事体験『診断エンジニアコース』（4days）",
+    href: "https://www.mbsd.jp/news/20260323/news/",
+    body: "三井物産セキュアディレクション（MBSD）のエンジニアが実務で使用する診断ツールを用いて、Web アプリケーションのセキュリティ診断プロセスを実践的に体験。講義・演習・フィードバックを通じて、脆弱性の発見から報告書作成までを一気通貫で取り組む。",
+    status: "upcoming",
+  },
+  {
+    year: "",
     month: "6月",
     tag: "インターン",
     title: "サイバーエージェント 1day インターン『Architecture Challenge』",
