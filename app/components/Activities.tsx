@@ -34,6 +34,22 @@ const scrollToCard = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
 const timeline: TimelineItem[] = [
   {
     year: "2026",
+    month: "9月",
+    tag: "インターン",
+    title: "NEC ソリューションイノベータ インターン『最新のサイバー脅威に立ち向かえ！』（5days）",
+    body: "チームで最新のサイバー脅威に立ち向かい、セキュリティソリューションを提案するワークショップ型インターン。IPA「情報セキュリティ10大脅威 2026」を題材に、脅威の分析から具体的な対策提案までをチームで一気通貫に取り組む。",
+    status: "upcoming",
+  },
+  {
+    year: "",
+    month: "8月",
+    tag: "インターン",
+    title: "NTT データ 現場受入れ型インターンシップ（金融 × セキュリティ）",
+    body: "金融業界のミッションクリティカルシステムを支えるサイバーセキュリティ活動を、現場に入って実践的に体験する現場受入れ型インターン。社会基盤を守る「最後の砦」としてのセキュリティ運用に取り組む。",
+    status: "upcoming",
+  },
+  {
+    year: "",
     month: "7月",
     tag: "インターン",
     title: "MBSD 仕事体験『診断エンジニアコース』（4days）",
@@ -47,8 +63,7 @@ const timeline: TimelineItem[] = [
     tag: "インターン",
     title: "サイバーエージェント 1day インターン『Architecture Challenge』",
     href: "https://www.cyberagent.co.jp/careers/students/event/detail/id=33042",
-    body: "テーマ「複数のサービスを支えるマルチテナンシーなプラットフォームを設計せよ」。SRE / プラットフォームエンジニアリング領域の設計課題に取り組む。",
-    status: "upcoming",
+    body: "テーマ「複数のファンクラブサイトを統合的にホスティングするマルチテナント基盤の設計」。各サイト平常時 100rps・イベント時に 1 サイトだけ 30,000rps まで跳ねる負荷を、30 名の運用で 1 秒以内に捌く構成を個人ワークで設計。CloudFront / ALB / ECS Fargate / Aurora を軸に「リクエストをできるだけ奥へ到達させない」設計思想でまとめ、最終発表で現役 SRE からフィードバックを受けた。マルチテナントのノイジーネイバー対策やキャッシュ戦略など、実運用で効くトレードオフの深さを学んだのが大きな収穫だった。",
   },
   {
     year: "",
